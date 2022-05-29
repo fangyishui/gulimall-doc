@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // map(): 接收一个函数，将原数组中的所有元素用这个函数处理后 放入新数组返回
+
+        let arr = ["1","2","5","-10"];
+        console.log(arr);   //['1', '2', '5', '-10']
+
+        arr = arr.map( s => s * 2 )
+        
+        console.log(arr);   // [2, 4, 10, -20]
+
+        console.log("-----------------------------------------------------------") 
+        //         语法：
+        // arr.reduce(callback,[initialValue])
+        // reduce 为数组中的每一个元素依次执行回调函数，不包括数组中被删除或从未被赋值的元素，
+        //接受四个参数：初始值（或者上一次回调函数的返回值），当前元素值，当前索引，调用 reduce 的数组。
+        // callback （执行数组中每个值的函数，包含四个参数）
+        // 1、previousValue （上一次调用回调返回的值，或者是提供的初始值（initialValue））2、currentValue （数组中当前被处理的元素）
+        // 3、index （当前元素在数组中的索引）
+        // 4、array （调用 reduce 的数组）
+        // initialValue （作为第一次调用 callback 的第一个参数。）
+
+        let result = arr.reduce((a,b) => {
+            console.log("上一次调用函数返回的值： " + a)
+            console.log("当前正在处理的值： " + b)
+
+            return a + b;
+        })
+        console.log(result) //-4
+
+        console.log("-----------------------------------------------------------") 
+
+
+        let result2 = arr.reduce((a,b) => {
+            console.log("上一次调用函数返回的值： " + a)
+            console.log("当前正在处理的值： " + b)
+
+            return a + b;
+        },100)      //初始值 100  ，再依次相加 initialValue
+        console.log(result2) //96
+
+        console.log("-----------------------------------------------------------") 
+
+        const arr2 = [1,20,-5,3];
+        // 没有初始值
+        console.log(arr2.reduce( (a,b) => a + b ))  //19 1+20+(-5)+3
+        console.log(arr2.reduce( (a,b) => a * b ))  //-300  1*20*(-5)*3
+
+        // 指定初始值
+        console.log(arr2.reduce( (a,b) => a+b ,1  ))    //20    1+1+20+(-5)+3
+        console.log(arr2.reduce( (a,b) => a*b ,0 ))     // -0   0*(1*20*(-5)*3)
+
+        console.log("-----------------------------------------------------------") 
+
+    </script>
+</body>
+</html>

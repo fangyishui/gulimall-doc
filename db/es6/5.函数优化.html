@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        // 1) 函数参数默认值
+        // 在ES6 以前，我们无法给一个函数参数设置默认值，只能采用变通写法
+        function add(a,b){
+            // 判断b 是否为空，为空就给默认值 1
+            b = b || 1;
+            return a + b;
+        }
+
+        // 传一个参数
+        console.log(add(10));
+
+        // 现在可以这样写 ： 直接给参数写上默认值，没传就会自动使用默认值
+        function add2(a, b = 1){
+            return a + b;
+        }
+        // 传一个参数
+        console.log(add2(20))
+
+        //-------------------------------------------------------------------------
+        // 2）不定参数
+        function fun(...values){
+            console.log(values.length);
+        }
+
+        fun(1,2);   //2
+        fun(2,3,4,5,6)  //5
+
+
+        //---------------------------------------------------------------------------
+        // 3)箭头函数
+        // 以前声明一个方法
+        // var print = function(obj){
+        //     console.log(obj);
+        // }
+        // 可以简写
+        var print = obj => console.log(obj);
+
+        // 测试
+        print(200)
+
+
+        // 两个参数情况;
+        var sum = function(a,b){
+            return a + b;
+        }
+
+        // 测试
+        console.log(sum(10 , 20))     //30
+
+        //简写
+        var sum2 = (a,b) => a+b;
+        console.log(sum2(20,30));   //50
+
+
+        // 代码不只一行 可以用 {} 
+        var sum3 = (a,b) => {
+            c = a + b;
+            return c;
+        }
+        console.log(sum3(20,40));   //60
+
+
+        // 4) 实战 ： 箭头函数结合解析表达式
+        // 以前的方法
+        const person = {
+            name: "Jack",
+            age: 38,
+            language: ["java","php","c++"]
+        }
+
+        function hello(person){
+            console.log("hello:" + person.name)
+        }
+
+        //测试
+        hello(person);
+
+        //现在的方式
+        var hello2 = ({ name }) => { console.log("hello:" + name )}
+
+
+        //测试
+        hello2(person);
+
+    </script>
+
+</body>
+</html>

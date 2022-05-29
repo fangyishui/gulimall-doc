@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 1）数组结构
+        let arr = [1,2,3];
+        // 以前我们想获取其中的值，只能通过角标 
+
+        let a = arr[0];
+        let b = arr[1];
+        let c = arr[2];
+        console.log(a,b,c);
+
+        // ES6可以这样：
+        const[x,y,z] = arr; //x y z 将与arr 中的每个位置对应来取值
+
+        console.log(x,y,z);
+
+
+        // 2)对象解构
+        const person = {
+            name: "Jack",
+            age: "20",
+            language: ["java","js","css"]
+        }
+
+        // 解构表达式获取值 将person里面每一个属性和左边对应赋值
+        // const {name,age,language} = person;
+        
+        // 等价下面
+        // const name = person.name;
+        // const age = person.age;
+        // const language = person.language;
+
+        // console.log(name);
+        // console.log(age);
+        // console.log(language);
+
+        // 扩展： 如果想要将name的值 赋值给其他变量 可以如下， nn时新的变量名
+        const {name: nn ,age, language} = person;
+        console.log(nn);
+        console.log(age);
+        console.log(language);
+
+    </script>
+</body>
+</html>
